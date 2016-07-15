@@ -1,0 +1,765 @@
+%Round Bottome Flask
+%\documentclass[preview]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\newcommand{\gold}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.76ex);
+	\draw[fill=black] (0, 0) circle (0.076ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\salt}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.76ex);
+	\draw (-0.76ex, 0) -- (0.76ex, 0);
+\end{tikzpicture}%
+}
+
+\newcommand{\fire}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (-60:1.5ex)
+	-- ++ (180:1.5ex)
+	-- ++ (60:1.5ex)
+	-- cycle;
+\end{tikzpicture}%
+}
+
+\newcommand{\air}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (-60:1.5ex)
+	-- ++ (180:1.5ex)
+	-- ++ (60:1.5ex)
+	-- cycle;
+	\draw (0, 0)
+	   ++ (270:0.5ex)
+	   ++ (0:0.75ex)
+	-- ++ (180:1.5ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\water}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (-60:1.5ex)
+	-- ++ (60:1.5ex)
+	-- ++ (180:1.5ex)
+	-- cycle;
+\end{tikzpicture}%
+}
+
+\newcommand{\earth}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (60:1.5ex)
+	-- ++ (180:1.5ex)
+	-- ++ (-60:1.5ex)
+	-- cycle;
+	\draw (0, 0)
+	   ++ (90:0.5ex)
+	   ++ (0:0.75ex)
+	-- ++ (180:1.5ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\sulfur}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (0:0.5*0.75ex)
+	-- ++ (120:0.5*1.5ex)
+	-- ++ (-120:0.5*1.5ex)
+	-- ++ (0:0.5*0.75ex)
+	-- ++ (270:0.75ex)
+	   ++ (90:0.375ex)
+	   ++ (180:0.375ex)
+	-- ++ (0:0.75ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\iron}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.5ex);
+	\draw (0, 0)
+	   ++ (45:0.5ex)
+	-- ++ (45:0.5ex)
+	   ++ (180:0.3ex)
+	-- ++ (0:0.3ex)
+	-- ++ (270:0.3ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\copper}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.5ex);
+	\draw (0, 0)
+	   ++ (270:0.5ex)
+	-- ++ (270:0.6ex)
+	   ++ (180:0.3ex)
+	   ++ (90:0.3ex)
+	-- ++ (0:0.6ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\antimony}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.5ex);
+	\draw (0, 0)
+	   ++ (90:0.5ex)
+	-- ++ (90:0.6ex)
+	   ++ (180:0.3ex)
+	   ++ (270:0.3ex)
+	-- ++ (0:0.6ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\haematite}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.35ex);
+	\draw (0, 0)
+	   ++ (90:0.35ex)
+	-- ++ (90:0.5ex)
+	   ++ (180:0.25ex)
+	   ++ (270:0.25ex)
+	-- ++ (0:0.5ex);
+	\draw (0, 0)
+	   ++ (270:0.35ex)
+	-- ++ (270:0.5ex)
+	   ++ (180:0.25ex)
+	   ++ (90:0.25ex)
+	-- ++ (0:0.5ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\mercury}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.4ex);
+	\draw (0, 0)
+	   ++ (270:0.4ex)
+	-- ++ (270:0.5ex)
+	   ++ (180:0.25ex)
+	   ++ (90:0.25ex)
+	-- ++ (0:0.5ex);
+	\draw (0, 0)
+	   ++ (90:0.7ex)
+	   ++ (180:0.3ex)
+	arc (180:360:0.3ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\lead}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (270:1.2ex)
+	   ++ (90:0.3ex)
+	-- ++ (45:0.15ex)
+	arc (135:-45:0.25ex)
+	-- ++ (-135:0.25ex)
+	arc (90+45:180+90+45:0.075ex);
+	\draw (0, 0)
+	   ++ (270:0.2ex)
+	   ++ (180:0.2ex)
+	-- ++ (0:0.4ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\leadalt}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (270:1.1ex)
+	-- ++ (225:0.5ex)
+	   ++ (225-180:0.5ex)
+	-- ++ (-45:0.5ex);
+	\draw (0, 0)
+	-- ++ (0:0.5ex)
+	arc (-225:45:0.2ex);
+	\draw (0, 0)
+	-- ++ (180:0.5ex)
+	arc (45:-225:0.2ex);
+	\draw (0, 0)
+	   ++ (270:0.5ex)
+	   ++ (180:0.3ex)
+	-- ++ (0:0.6ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\sublimation}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) 
+		-- ++ (0:0.65ex)
+		arc (225:-45:0.5ex)
+		-- ++ (0:0.65ex);
+	\draw (0, 0)
+		   ++ (270:0.3ex)
+		-- ++ (0:2.01ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\precipitation}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) 
+		-- ++ (0:0.65ex)
+		arc (-225:45:0.5ex)
+		-- ++ (0:0.65ex);
+	\draw (0, 0)
+		   ++ (90:0.3ex)
+		-- ++ (0:2.01ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\annealing}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.6ex);
+	\draw (0, 0) 
+	   ++ (-0.75ex, -0.75ex)
+	-- ++ (1.5ex, 1.5ex)
+	   ++ (-1.5ex, 0)
+	-- ++ (1.5ex, -1.5ex);
+	\draw (0, 0)
+	   ++ (-0.75ex, -0.75ex)
+	   ++ (0ex, 0.3ex)
+	-- ++ (0.3ex, -0.3ex);
+	\draw (0, 0)
+	   ++ (0.75ex, 0.75ex)
+	   ++ (0ex, -0.3ex)
+	-- ++ (-0.3ex, 0.3ex);
+	\draw (0, 0)
+	   ++ (-0.75ex, 0.75ex)
+	   ++ (0ex, -0.3ex)
+	-- ++ (0.3ex, 0.3ex);
+	\draw (0, 0)
+	   ++ (0.75ex, -0.75ex)
+	   ++ (0ex, 0.3ex)
+	-- ++ (-0.3ex, -0.3ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\metallime}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) 
+		arc (45:135:0.5ex and 0.3ex);
+	\draw (0, 0)
+		arc (225:315:0.5ex and 0.3ex);
+	\draw (0, 0)
+	-- ++ (270:1.45ex)
+	   ++ (90:0.4ex)
+	   ++ (180:0.4ex)
+	-- ++ (0:0.8ex)
+	   ++ (180:0.4ex)
+	   ++ (90:0.3ex)
+	   ++ (180:0.3ex)
+	-- ++ (0:0.6ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\angelsite}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (270:1.2ex)
+	   ++ (90:0.3ex)
+	-- ++ (45:0.15ex)
+	arc (135:-45:0.25ex)
+	-- ++ (-135:0.25ex)
+	arc (90+45:180+90+45:0.075ex);
+	\draw (0, 0)
+	   ++ (270:0.2ex)
+	   ++ (180:0.5ex)
+	-- ++ (0:0.7ex);
+	\draw (0, 0)
+	   ++ (180:0.3ex)
+	-- ++ (270:1.2ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\wax}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	   ++ (0:0.4ex)
+	-- ++ (180:2ex)
+	-- ++ (-45:0.5ex);
+	\draw (0, 0)
+	   ++ (270:0.4ex)
+	-- ++ (90:0.8ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\coppersaffron}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	   ++ (-0.6ex,0.6ex)
+	circle (0.2ex)
+	   ++ (0.175ex,-0.175ex)
+	-- ++ (0.8ex, -0.8ex)
+	   ++ (0.175ex, -0.175ex)
+	circle (0.2ex);
+	\draw (0, 0)
+	   ++ (0.5ex, 0.7ex)
+	   ++ (0ex, 0)
+	-- ++ (-1.2ex,-1.2ex);
+	\draw (0, 0)
+	   ++ (0.7ex,0.5ex)
+	   ++ (0ex, 0)
+	-- ++ (-1.2ex,-1.2ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\silver}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	   ++ (90:0.75ex)
+	arc (105:-105:0.75ex)
+	arc (-75:75:0.75ex)
+	-- cycle;
+\end{tikzpicture}%
+}
+
+\newcommand{\sulphur}[1]{%
+\sulfur{#1}
+}
+
+\newcommand{\talc}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (60:0.65ex)
+	-- ++ (180:0.65ex)
+	-- ++ (-60:0.65ex)
+	-- ++ (270:1ex)
+	   ++ (90:0.175ex)
+	   ++ (180:0.3ex)
+	-- ++ (0:0.6ex)
+	   ++ (90:0.125ex)
+	-- ++ (180:0.6ex)
+	   ++ (90:0.125ex)
+	-- ++ (0:0.6ex)
+	   ++ (90:0.175ex)
+	-- ++ (180:0.6ex)
+	   ++ (90:0.125ex)
+	-- ++ (0:0.6ex)
+	   ++ (90:0.125ex)
+	-- ++ (180:0.6ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\borax}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	   ++ (0:0.4ex)
+	-- ++ (180:1.5ex)
+	-- ++ (50:1ex)
+	-- ++ (270:1.4ex);
+	\draw (0, 0)
+	   ++ (270:0.3ex)
+	-- ++ (90:0.6ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\lime}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (0:180:0.2ex)
+	-- ++ (180:0.9ex)
+	-- ++ (45:{1.3/cos(45)*1ex})
+	-- ++ (180:1.5ex)
+	   ++ (0:0.4ex)
+	   ++ (90:0.3ex)
+	-- ++ (270:0.6ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\vitriol}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (0:1.4ex)
+	-- ++ (225:2.05ex);
+	\draw (0, 0)
+	   ++ (270:0.55ex)
+	   ++ (0:0.3ex)
+	-- ++ (0:0.9ex)
+	arc (135:405:0.2ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\arsenic}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (270:1.5ex);
+	\draw (0, 0)
+	   ++ (270:0.4ex)
+	   ++ (180:0.2ex)
+	-- ++ (0:0.4ex);
+	\draw (0, 0)
+	   ++ (270:1ex) 
+	arc (180:90:0.3ex)
+	arc (90:45:0.6ex)
+	arc (45:45-7.8:1.2ex)
+	arc (45-180-7.8:45-180:1.2ex)
+	arc (45-180:90-180:0.6ex)
+	arc (90-180:180-180:0.3ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\arsenicalt}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (60:1.5ex)
+	-- ++ (180:1.5ex)
+	-- ++ (-60:1.5ex)
+	-- cycle;
+	\draw (0, 0)
+	   ++ (0:0.25ex)
+	-- ++ (0:0.5ex)
+	-- ++ (120:1.5ex)
+	-- ++ (-120:1.5ex)
+	-- ++ (0:0.5ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\essentialoil}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (0:0.75ex)
+	-- ++ (120:0.5*1.5ex)
+	   ++ (120:0.5*1.5ex)
+	   ++ (-120:0.5*1.5ex)
+	-- ++ (-120:0.5*1.5ex)
+	-- ++ (0:0.75ex)
+	-- ++ (270:0.75ex)
+	   ++ (90:0.375ex)
+	   ++ (180:0.375ex)
+	-- ++ (0:0.75ex);
+	\draw (0, 0)
+	-- ++ (90:{tan(60)*0.5*0.75ex});
+\end{tikzpicture}%
+}
+
+\newcommand{\transmutation}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (85:-85:0.4ex and 0.75ex);
+	\draw (0, 0)
+	   ++ (0:1.25ex)
+	arc (95:265:0.4ex and 0.75ex);
+	\draw (0, 0)
+	   ++ (270:0.75ex)
+	-- ++ (0:1.25ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\tin}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (270:180:0.08ex)
+	arc (180:0:0.4ex)
+	arc (0:-90:0.8ex)
+	-- ++ (0:1.45ex)
+	   ++ (180:0.3ex)
+	   ++ (270:0.3ex)
+	-- ++ (90:1.55ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\alum}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (180:0:0.15ex and 0.3ex)
+	arc (0:-90:0.3ex and 0.3ex)
+	-- ++ (0:1.45ex)
+	arc (270:180:0.3ex and 0.3ex)
+	arc (180:0:0.15ex and 0.3ex)
+	   ++ (180:0.5*1.456ex)
+	-- ++ (270:1.2ex)
+	   ++ (0:0.4ex)
+	-- ++ (180:0.8ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\glass}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (135+7.8:135:1.2ex)
+	arc (135:90:0.6ex)
+	arc (90:-90:0.3ex)
+	arc (-90:-135:0.6ex)
+	arc (-135:-135-7.8:1.2ex)
+	arc (45-7.8:45:1.2ex)
+	arc (45:90:0.6ex)
+	arc (90:270:0.3ex)
+	arc (270:315:0.6ex)
+	arc (315:315+7.8:1.2ex)
+	-- cycle
+	-- ++ (270:1.25ex)
+	   ++ (90:0.4ex)
+	   ++ (180:0.4ex)
+	-- ++ (0:0.8ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\multiplication}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	   ++ (90:0.35ex)
+	-- ++ (40:0.6ex)
+	-- ++ (-75:{(0.6ex*sin(40))/(cos(90-75))})
+	-- ++ (40:0.6ex)
+	-- ++ (-75:{(0.6ex*sin(40))/(cos(90-75))})
+	-- ++ (40:0.6ex)
+	-- ++ (-75:{(0.6ex*sin(40))/(cos(90-75))});
+	\draw (0, 0)
+	   ++ (270:0.35ex)
+	-- ++ (40:0.5ex)
+	-- ++ (-75:{(0.6ex*sin(40))/(cos(90-75))})
+	-- ++ (40:0.6ex)
+	-- ++ (-75:{(0.6ex*sin(40))/(cos(90-75))})
+	-- ++ (40:0.6ex)
+	-- ++ (-75:{(0.6ex*sin(40))/(cos(90-75))});
+\end{tikzpicture}%;
+}
+
+\newcommand{\dissolution}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	circle (0.35ex)
+	   ++ (135:0.35ex)
+	arc (135:45:1.5ex and 1.25ex)
+	   ++ (270:0.5ex)
+	   ++ (180:0.35ex)
+	circle (0.35ex)
+	   ++ (-45:0.35ex)
+	arc (-45:-135:1.5ex and 1.25ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\calcination}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (0:22.5:4ex)
+	arc (22.5:45:0.5ex)
+	arc (45:135:0.25ex)
+	arc (135:200:0.5ex);
+	\draw (0, 0)
+	arc (180:180-22.5:4ex)
+	arc (180-22.5:180-45:0.5ex)
+	arc (180-45:180-135:0.25ex)
+	arc (180-135:180-200:0.5ex);;
+\end{tikzpicture}%
+}
+
+\newcommand{\congelation}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	circle (0.5ex)
+	   ++ (90:0.5ex)
+	arc (270:225:0.5ex and 1ex)
+	arc (45:90:0.5ex and 1ex);
+	\draw (0, 0)
+	   ++ (90:0.5ex)
+	arc (270:315:0.5ex and 1ex)
+	arc (135:90:0.5ex and 1ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\fixation}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	   ++ (0:1.0ex)
+	   ++ (270:0.15ex)
+	-- ++ (270:1.2ex)
+	   ++ (180:0.6ex)
+	-- ++ (90:1.2ex);
+	\draw (0, 0)
+	arc (225:315:1ex and 0.5ex)
+	   ++ (270:1.5ex)
+	arc (45:135:1ex and 0.5ex);
+	   ++ (90:0.5ex)
+	(270:225:0.5ex and 1ex)
+	arc (45:90:0.5ex and 1ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\digestion}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	circle (0.35ex)
+	   ++ (30:0.35ex)
+	-- ++ (120:0.5ex)
+	arc (200:-20:0.5ex)
+	-- ++ (250:0.75ex)
+	arc (-20+180:-20+180+11.25:1.2ex)	
+	arc (-20+180+11.25:250+90:0.3ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\distillation}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (20:0:1.66ex)
+	-- ++ (270:1ex)
+	   ++ (90:0.8ex)
+	arc (180:140:1.2ex)
+	arc (20:0:1.66ex)
+	-- ++ (270:1ex)
+	   ++ (90:0.8ex)
+	arc (180:140:1.2ex)
+	arc (20:0:1.66ex)
+	-- ++ (270:1ex)
+	arc (180:200:1.66ex and 1ex)
+	   ++ (180:1.66ex)
+	   ++ (20:1.66ex)
+	   ++ (90:0.3ex)
+	arc (180:140:1.2ex)
+	arc (20:-90:0.7ex and 1.1ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\separation}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw[->, >=latex] (0, 0)
+	arc (20:0:1.66ex)
+	-- ++ (270:1ex)
+	   ++ (90:0.8ex)
+	arc (180:140:1.2ex)
+	arc (20:0:1.66ex)
+	-- ++ (270:1ex)
+	   ++ (90:0.8ex)
+	arc (180:140:1.2ex)
+	arc (20:0:1.66ex)
+	-- ++ (270:1ex)
+	arc (180:270:0.3ex)
+	-- ++ (0:0.5ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\incineration}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (45:2ex)
+	   ++ (180:0.75ex)
+	-- ++ (0:0.75ex)
+	-- ++ (270:0.75ex);
+	\draw (0, 0)
+	   ++ (45:0.75ex)
+	   ++ (135:0.5ex)
+	-- ++ (-45:1ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\fermentation}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (90:10:0.5ex)
+	arc (10:0:4ex)
+	arc (180:135:1ex and 1.5ex)
+	-- ++ (20:0.1ex)
+	arc (20:0:4ex and 3.2ex)
+	arc (180:270:0.5ex)
+	arc (-90:90:0.3ex)
+	arc (90:135:0.9ex and 3ex)
+	arc (135+180:270:0.2ex and 0.4ex)
+	-- ++ (180:0.2ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\alcohol}[1]{%
+\begin{tikzpicture}[#1]%
+	\node at (0, 0) {S};
+	\draw (0, 0)
+	   ++ (180:0.75ex)
+	-- ++ (-60:1.5ex)
+	-- ++ (60:1.5ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\stone}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (180:0.25ex)
+	-- ++ (-120:1ex)
+	-- ++ (0:1.5ex)
+	-- ++ (120:1ex)
+	-- ++ (180:0.25ex)
+	-- cycle;
+	\draw[->, >=latex] (0, 0)
+	-- ++ (270:1.75ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\phosphorus}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	-- ++ (0:0.5*0.75ex)
+	-- ++ (120:0.5*1.5ex)
+	-- ++ (-120:0.5*1.5ex)
+	-- ++ (0:0.5*0.75ex)
+	-- ++ (270:0.75ex)
+	   ++ (90:0.375ex)
+	   ++ (180:0.375ex)
+	-- ++ (0:0.75ex)
+	   ++ (270:0.2ex)
+	-- ++ (180:0.75ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\bismuth}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.5ex);
+	\draw (0, 0)
+	   ++ (90:0.9ex)
+	   ++ (180:0.4ex)
+	arc (180:360:0.4ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\platinum}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) circle (0.76ex);
+	\draw[fill=black] (0, 0) circle (0.076ex);
+	\draw (-0.85*2ex, 0)
+	   ++ (90:0.75ex)
+	arc (105:-105:0.75ex)
+	arc (-75:75:0.75ex)
+	-- cycle;
+\end{tikzpicture}%
+}
+
+\newcommand{\sulfuralt}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0)
+	arc (135+7.8:135:1.2ex)
+	arc (135:90:0.6ex)
+	arc (90:-90:0.3ex)
+	arc (-90:-135:0.6ex)
+	arc (-135:-135-7.8:1.2ex)
+	arc (45-7.8:45:1.2ex)
+	arc (45:90:0.6ex)
+	arc (90:270:0.3ex)
+	arc (270:315:0.6ex)
+	arc (315:315+7.8:1.2ex)
+	-- cycle
+	-- ++ (90:1.25ex)
+	   ++ (270:0.3ex)
+	   ++ (180:0.4ex)
+	-- ++ (0:0.8ex)
+	   ++ (270:0.2ex)
+	-- ++ (180:0.8ex);
+\end{tikzpicture}%
+}
+
+\newcommand{\potassium}[1]{%
+\begin{tikzpicture}[#1]%
+	\draw (0, 0) 
+	   ++ (90:0.5ex)
+	-- ++ (180:0.5ex)
+	-- ++ (270:1ex)
+	-- ++ (0:1ex)
+	-- ++ (90:1ex)
+	-- cycle;
+	\draw (0, 0)
+	   ++ (270:0.5ex)
+	-- ++ (270:0.6ex)
+	   ++ (180:0.3ex)
+	   ++ (90:0.3ex)
+	-- ++ (0:0.6ex);
+\end{tikzpicture}%
+}
