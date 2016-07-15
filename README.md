@@ -6,7 +6,7 @@ This LaTeX package is meant to provide (Tikz) drawings of alchemical symbols.
 ##Installation
 I hope to have this package in CTAN as soon as possible. Stay tuned.
 
-#Linux
+###Linux
 Clone this repository to `~/texmf/tex/`:
 ```bash
 mkdir ~/texmf/tex
@@ -14,10 +14,10 @@ cd ~/texmf/tex
 git clone https://github.com/michaelplews/alchemy-latex.git
 ```
 
-#OSX (Mac)
+###OSX (Mac)
 Create the folder ~/Library/texmf/tex and download this repository into it.
 
-#Windows
+###Windows
 This depends on you LaTeX installation. Instructions for popular distributions can be found with a simple google search.
 (Example: [MikTeX](http://tex.stackexchange.com/questions/69483/create-a-local-texmf-tree-in-miktex)) 
 
