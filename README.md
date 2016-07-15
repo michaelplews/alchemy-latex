@@ -31,7 +31,7 @@ This depends on you LaTeX installation. Instructions for popular distributions c
 \end{document}
 ``` 
 
-Symbols available can be found [here](./examples/example.pdf). Full documentation is on its way! Have any symbold you would like to be included? [Make a request](https://github.com/michaelplews/alchemy-latex/issues/new)
+Symbols available can be found [here](./examples/example.pdf). Full documentation is on its way! Have any symbols you would like to be included? [Make a request](https://github.com/michaelplews/alchemy-latex/issues/new)
 
 ###Options
 ```tex
