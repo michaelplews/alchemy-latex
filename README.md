@@ -1,12 +1,13 @@
-#Alchemy
+
+# Alchemy
 ![The Seven Metals of the Ancients](/examples/SevenMetals.png)
 
 This LaTeX package is meant to provide (TikZ) drawings of alchemical symbols.
 
-##Installation
+## Installation
 I hope to have this package in CTAN as soon as possible. Stay tuned.
 
-###Linux
+### Linux
 Clone this repository to `~/texmf/tex/`:
 ```bash
 mkdir ~/texmf/tex
@@ -14,10 +15,10 @@ cd ~/texmf/tex
 git clone https://github.com/michaelplews/alchemy-latex.git
 ```
 
-###OSX (Mac)
+### OSX (Mac)
 Create the folder ~/Library/texmf/tex and download this repository into it.
 
-###Windows
+### Windows
 This depends on you LaTeX installation. Instructions for popular distributions can be found with a simple google search.
 (Example: [MikTeX](http://tex.stackexchange.com/questions/69483/create-a-local-texmf-tree-in-miktex)) 
 
@@ -33,7 +34,7 @@ This depends on you LaTeX installation. Instructions for popular distributions c
 
 Symbols available can be found [here](./examples/example.pdf). Full documentation is on its way! Have any symbols you would like to be included? [Make a request](https://github.com/michaelplews/alchemy-latex/issues/new)
 
-###Options
+### Options
 ```tex
 \gold{scale=3, line width=1.5pt, red}
 ```
